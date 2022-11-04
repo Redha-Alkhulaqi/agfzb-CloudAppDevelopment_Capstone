@@ -28,12 +28,13 @@ DEBUG = True
 APPEND_SLASH = True
 
 ALLOWED_HOSTS = ["localhost", "localhost:8000",
-                 "Redha_for_Cars.us-south.cf.appdomain.cloud", "Redha_for_Cars.apic.mybluemix.net",
-                 "Redha_for_Cars-8000.theiadocker-3-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"]
+                 "redha_for_cars.us-south.cf.appdomain.cloud",
+                 "redha_for_cars.apic.mybluemix.net/static",
+                 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://Redha_for_Cars-8000.theiadocker-3-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/',
-                        "Redha_for_Cars.us-south.cf.appdomain.cloud",
-                        "http://Redha_for_Cars.apic.mybluemix.net/static",'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ["https://redha_for_cars.us-south.cf.appdomain.cloud/",
+                        "http://redha_for_cars.apic.mybluemix.net/static/",
+                        'https://*.127.0.0.1']
 
 # Application definition
 
