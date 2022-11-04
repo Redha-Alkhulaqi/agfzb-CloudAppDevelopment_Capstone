@@ -1,11 +1,11 @@
   applications:
   - name: djangoapp
     routes:
-      - route: Redha_for_Cars.us-south.cf.appdomain.cloud
+      - route: redha_for_cars.us-south.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
   - name: djangoapp-nginx
     routes:
-      - route: Redha_for_Cars.apic.mybluemix.net/static
+      - route: redha_for_cars.apic.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack
