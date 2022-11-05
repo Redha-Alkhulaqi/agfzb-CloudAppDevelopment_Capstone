@@ -3,12 +3,12 @@ function main(params) {
     const { CloudantV1 } = require("@ibm-cloud/cloudant");
     const { IamAuthenticator } = require("ibm-cloud-sdk-core");
     const authenticator = new IamAuthenticator({
-      apikey: "", // TODO: Replace with your API key
+      apikey: params.IAM_API_KEY, // TODO: Replace with your API key
     });
     const cloudant = CloudantV1.newInstance({
       authenticator: authenticator,
     });
-    cloudant.setServiceUrl(""); // TODO: Replace with your Cloudant service URL
+    cloudant.setServiceUrl(params.COUCH_URL); // TODO: Replace with your Cloudant service URL
     // add id to review
     doc = params.review;
     doc.id = Math.floor(Math.random() * (80 - 15) + 15);
