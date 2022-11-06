@@ -17,6 +17,7 @@ class CarMake(models.Model):
         return "Name: " + self.name + "," + \
                "Description: " + self.description
 
+
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
 # - Name
