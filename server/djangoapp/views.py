@@ -70,7 +70,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         context = {}
-        url = "https://us-south.functions.appdomain.cloud/api/v1/web/reda.ali.ahmed%40gmail.com_djangoserver-space/dealership-package/get-dealership"
+        url = "https://e29b86ca.eu-gb.apigw.appdomain.cloud/api/dealership"
         dealerships = get_dealers_from_cf(url)
         context["dealership_list"] = dealerships
         return render(request, 'djangoapp/index.html', context)
@@ -79,11 +79,11 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     if request.method == "GET":
         context = {}
-        url = "https://us-south.functions.appdomain.cloud/api/v1/web/reda.ali.ahmed%40gmail.com_djangoserver-space/dealership-package/get-review/"
+        url = "https://e29b86ca.eu-gb.apigw.appdomain.cloud/api/review/"
         reviews = get_dealer_reviews_from_cf(url, dealer_id)
         context["reviews"] = reviews
         dealer = get_dealer_from_cf_by_id(
-            "https://us-south.functions.appdomain.cloud/api/v1/web/reda.ali.ahmed%40gmail.com_djangoserver-space/dealership-package/get-dealership", dealer_id)
+            "https://e29b86ca.eu-gb.apigw.appdomain.cloud/api/dealership", dealer_id)
         context["dealer"] = dealer
         return render(request, 'djangoapp/dealer_details.html', context)
 
