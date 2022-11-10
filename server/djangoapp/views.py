@@ -70,7 +70,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         context = {}
-        url = "https://us-south.functions.appdomain.cloud/api/v1/web/reda.ali.ahmed%40gmail.com_djangoserver-space/dealership-package/get-dealership"
+        url = "https://us-south.functions.appdomain.cloud/api/v1/web/reda.ali.ahmed%40gmail.com_djangoserver-space/dealership-package/get-dealership/"
         dealerships = get_dealers_from_cf(url)
         context["dealership_list"] = dealerships
         return render(request, 'djangoapp/index.html', context)
@@ -120,6 +120,7 @@ def add_review(request, dealer_id):
         review["car_year"] = review_car.year.strftime("%Y")
         json_payload = {}
         json_payload["review"] = review
-        response = post_request(url, json_payload)
-        return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
+        review_post_url = "https://us-south.functions.appdomain.cloud/api/v1/web/reda.ali.ahmed%40gmail.com_djangoserver-space/dealership-package/post-review"
+        response = post_request(review_post_url, json_payload)
+    return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
 
