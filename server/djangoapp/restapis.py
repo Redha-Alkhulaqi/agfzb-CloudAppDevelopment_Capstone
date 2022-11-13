@@ -10,6 +10,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 # Create a `get_request` to make HTTP GET requests
 def get_request(url, **kwargs):
     print(kwargs)
@@ -62,6 +63,9 @@ def get_dealers_from_cf(url, **kwargs):
         return results
 
 
+
+
+
 # Create a get_dealer_reviews_from_cf method to get reviews by dealer id from a cloud function
 def get_dealer_reviews_from_cf(url, **kwargs):
     results = []
@@ -95,6 +99,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
             results.append(review_obj)
 
     return results
+
 
 
 # Create a  get_request method to get reviews 
@@ -154,6 +159,20 @@ def get_dealer_by_id_from_cf(url, id):
                 results.append(dealer_obj)
 
     return results[0]
+
+# Create an `analyze_review_sentiments` method to call Watson NLU and analyze text
+def analyze_review_sentiments(text):
+    url = "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/6a6a2b71-83d0-4b2f-876b-eb55fb899f27"
+    api_key = "533f4DxkIc7qQlEq_JVOFkkFT0JWp5lyS_-ievIpeQJ1"
+    authenticator = IAMAuthenticator(api_key)
+    natural_language_understanding = NaturalLanguageUnderstandingV1(version='2021-08-01',authenticator=authenticator)
+    natural_language_understanding.set_service_url(url)
+    response = natural_language_understanding.analyze( text=text+"hello hello hello",features=Features(sentiment=SentimentOptions(targets=[text+"hello hello hello"]))).get_result()
+    label=json.dumps(response, indent=2)
+    label = response['sentiment']['document']['label']
+
+
+    return(label)
 
 
 # Create an `analyze_review_sentiments` method to call Watson NLU and analyze text

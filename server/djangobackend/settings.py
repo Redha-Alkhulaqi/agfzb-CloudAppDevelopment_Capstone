@@ -28,12 +28,12 @@ DEBUG = True
 APPEND_SLASH = True
 
 ALLOWED_HOSTS = ["localhost", "localhost:8000",
-                 "redha_for_cars.us-south.cf.appdomain.cloud",
-                 "redha_for_cars.apic.mybluemix.net/static",
+                 "bw-best-car.mybluemix.net/",
+                 "bw-best-car.mybluemix.net/static",
                  ]
 
-CSRF_TRUSTED_ORIGINS = ["https://redha_for_cars.us-south.cf.appdomain.cloud/",
-                        "http://redha_for_cars.apic.mybluemix.net/static/",
+CSRF_TRUSTED_ORIGINS = ["https://bw-best-car.mybluemix.net/",
+                        "http://bw-best-car.mybluemix.net/static/",
                         'https://*.127.0.0.1']
 
 # Application definition
